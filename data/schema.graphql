@@ -1,0 +1,27 @@
+type Adult implements Node {
+  id: ID!
+  firstName: String
+  lastName: String
+  fatherFirstName: String
+  motherFirstName: String
+  motherLastName: String
+  birthDate: Date
+  ninaNumber: String
+  receiptNumber: String
+}
+
+scalar Date
+
+interface Node {
+  id: ID!
+}
+
+type Query {
+  node(id: ID!): Node
+  viewer(viewerId: Int): Viewer
+}
+
+type Viewer implements Node {
+  id: ID!
+  adult(after: String, first: Int, before: String, last: Int, search: String!): Adult
+}
