@@ -30,14 +30,14 @@ class IdentityNumber extends React.Component {
                         <div className="col-md-6 center-block">
                             <div className="form-group">
                                 <div className="col-md-12">
-                                    <h2>Bienvenue  sur le service pour les nouveaux majeurs du CTDEC!</h2>
+                                    <h2 className={"text-center"}>Bienvenue !</h2>
                                     <p className="headline">
                                         <br/><br/>
                                         Ici, vous pouvez retrouver les informations complètes relatives à vos données NINA.
                                         <br/><br/>
-                                        Pour faire une recherche, il est nécessaire de fournir des informations.
+                                        La recherche peut se faire par identifiants ou par données biographiques.
                                         <br/><br/>
-                                        Cliquez sur le cas vous correspondant.
+                                        Pour commencer, cliquez sur le cas vous correspondant.
                                     </p>
                                 </div>
                             </div>
