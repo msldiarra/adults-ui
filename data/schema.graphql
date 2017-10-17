@@ -8,6 +8,8 @@ type Adult implements Node {
   birthDate: Date
   ninaNumber: String
   receiptNumber: String
+  placeOfBirth: String
+  placeOfResidence: String
 }
 
 scalar Date

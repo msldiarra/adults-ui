@@ -44,6 +44,8 @@ export const adultType = new GraphQLObjectType({
             birthDate : { type: GraphQLMoment, resolve(adult) { return GraphQLMoment.serialize(adult.birthdate) } },
             ninaNumber : { type: GraphQLString, resolve(adult) { return adult.ninanumber } },
             receiptNumber : { type: GraphQLString, resolve(adult) { return adult.receiptnumber } },
+            placeOfBirth : { type: GraphQLString, resolve(adult) { return adult.placeofbirth } },
+            placeOfResidence: { type: GraphQLString, resolve(adult) { return adult.placeofresidence } }
         }
     },
     interfaces: () => [nodeInterface]
@@ -97,7 +99,7 @@ export const viewerType = new GraphQLObjectType({
                 },
                 resolve: (_, args) => {
                     var term = args.search? args.search : '';
-                    return connectionFromPromisedArray(DB.models.adult.findOne({where: {ninanumber: {$eq: term} }}), args)
+                    return DB.models.adult.findOne({where: {ninanumber: {$eq: term} }})
                 }
             }
         }

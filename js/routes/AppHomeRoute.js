@@ -7,6 +7,7 @@ import IdentitySearch from '../components/IdentitySearch';
 import SearchByNINA from '../components/SearchByNINA';
 import SearchByRAVEC from '../components/SearchByRAVEC';
 import SearchByDefault from '../components/SearchByDefault';
+import Adult from '../components/Adult';
 
 class RouteHome extends Relay.Route {
 
@@ -67,5 +68,6 @@ export default  <Route>
                         <Route path="search/nina" component={SearchByNINA} queries={RouteHome.queries} prepareParams={getAnonymousParams} />
                         <Route path="search/ravec" component={SearchByRAVEC} queries={RouteHome.queries} prepareParams={getAnonymousParams} />
                         <Route path="search/default" component={SearchByDefault} queries={RouteHome.queries} prepareParams={getAnonymousParams} />
+                        <Route path="nina/:ninaNumber" component={Adult} queries={RouteHome.queries} prepareParams={getAnonymousParams} />
                     </Route>
                 </Route>

@@ -12,13 +12,15 @@ export const DB = new Sequelize(
 
 
 export const Adult = DB.define('adult', {
-        firtname: Sequelize.STRING,
-        lastame: Sequelize.STRING,
+        firstname: Sequelize.STRING,
+        lastname: Sequelize.STRING,
         fatherfirstname: Sequelize.STRING,
         motherfirstname: Sequelize.STRING,
         motherlastname: Sequelize.STRING,
         ninanumber: Sequelize.STRING,
         receiptnumber: Sequelize.STRING,
+        placeofbirth: Sequelize.STRING,
+        placeofresidence: Sequelize.STRING,
         birthdate: Sequelize.DATE,
     } , {timestamps: false, freezeTableName: true}
 );

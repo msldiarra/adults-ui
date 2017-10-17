@@ -17,6 +17,7 @@ class SearchByNINA extends React.Component {
 
         e.preventDefault();
         console.log(this.refs.nina.value);
+        this.context.router.push('/nina/' + this.refs.nina.value);
     }
 
     render() {
