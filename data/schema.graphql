@@ -27,4 +27,5 @@ type Viewer implements Node {
   id: ID!
   adult(after: String, first: Int, before: String, last: Int, search: String!): Adult
   adultByReceipt(after: String, first: Int, before: String, last: Int, search: String!): Adult
+  adultByBiography(after: String, first: Int, before: String, last: Int, firstName: String!, lastName: String!, fatherFirstName: String!, motherFirstName: String!, motherLastName: String!): Adult
 }

@@ -116,6 +116,30 @@ export const viewerType = new GraphQLObjectType({
                     var term = args.search? args.search : '';
                     return DB.models.adult.findOne({where: {receiptnumber: {$eq: term} }})
                 }
+            },
+            adultByBiography: {
+                type: adultType,
+                description: "adult information of user",
+                args: {
+                    ...connectionArgs,
+                    firstName: { name: 'firstName', type: new GraphQLNonNull(GraphQLString)},
+                    lastName: { name: 'lastName', type: new GraphQLNonNull(GraphQLString)},
+                    fatherFirstName: { name: 'fatherFirstName', type: new GraphQLNonNull(GraphQLString)},
+                    motherFirstName: { name: 'motherFirstName', type: new GraphQLNonNull(GraphQLString)},
+                    motherLastName: { name: 'motherLastName', type: new GraphQLNonNull(GraphQLString)},
+                },
+                resolve: (_, args) => {
+                    return DB.models.adult.findOne({
+                        where: {firstname: {$eq: args.firstName}, $and:
+                            [
+                                {lastname: {$eq: args.lastName}},
+                                {fatherfirstname: {$eq: args.fatherFirstName}},
+                                {motherfirstname: {$eq: args.motherFirstName}},
+                                {motherlastname: {$eq: args.motherLastName}}
+                            ]
+                        }
+                    })
+                }
             }
         }
     },

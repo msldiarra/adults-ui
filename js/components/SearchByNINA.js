@@ -44,7 +44,7 @@ class SearchByNINA extends React.Component {
                             <div className="form-group">
                                 <div className="col-md-12">
                                     <div className="input-group col-md-12">
-                                        <span className="input-group-addon">NINA</span>
+                                        <span className="input-group-addon"></span>
                                         <input type="text" ref="nina" id="nina" className="form-control" placeholder="Numéro NINA" />
                                     </div>
                                 </div>

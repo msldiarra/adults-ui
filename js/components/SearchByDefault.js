@@ -17,11 +17,24 @@ class SearchByDefault extends React.Component {
 
         e.preventDefault();
 
-        console.log(this.refs.lastName.value);
-        console.log(this.refs.firstName.value);
-        console.log(this.refs.fatherFirstName.value);
-        console.log(this.refs.motherLastName.value);
-        console.log(this.refs.motherFirstName.value);
+        let ln = this.refs.lastName.value;
+        let fn = this.refs.firstName.value;
+        let ffn = this.refs.fatherFirstName.value;
+        let mln = this.refs.motherLastName.value;
+        let mfn = this.refs.motherFirstName.value;
+
+
+        this.context.router.push({
+            pathname: '/biography',
+            query: Object.assign({}, this.props.location.query, {
+                lastName: ln,
+                firstName: fn,
+                fatherFirstName: ffn,
+                motherLastName: mln,
+                motherFirstName: mfn
+
+            } )
+        })
 
     }
 

@@ -9,6 +9,7 @@ import SearchByRAVEC from '../components/SearchByRAVEC';
 import SearchByDefault from '../components/SearchByDefault';
 import Adult from '../components/Adult';
 import AdultByReceipt from '../components/AdultByReceipt';
+import AdultByBigoraphy from '../components/AdultByBigoraphy';
 
 class RouteHome extends Relay.Route {
 
@@ -48,9 +49,26 @@ function getParams(params, route){
 
 function getAnonymousParams(params, route){
 
+
     return {
         ...params,
         viewerId: ''
+    }
+}
+
+
+function getBiographyParams(params, route){
+
+    const {firstName, lastName, fatherFirstName, motherFirstName, motherLastName} = route.location.query;
+
+    return {
+        ...params,
+        viewerId: '',
+        firstName,
+        lastName,
+        fatherFirstName,
+        motherFirstName,
+        motherLastName
     }
 }
 
@@ -73,5 +91,6 @@ export default  <Route>
 
                         <Route path="nina/:ninaNumber" component={Adult} queries={RouteHome.queries} prepareParams={getAnonymousParams} />
                         <Route path="receipt/:receiptNumber" component={AdultByReceipt} queries={RouteHome.queries} prepareParams={getAnonymousParams} />
+                        <Route path="biography" component={AdultByBigoraphy} queries={RouteHome.queries} prepareParams={getBiographyParams} />
                     </Route>
                 </Route>
