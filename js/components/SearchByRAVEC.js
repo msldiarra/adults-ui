@@ -16,8 +16,8 @@ class SearchByRAVEC extends React.Component {
 
         e.preventDefault();
         console.log(this.refs.receipt.value);
+        this.context.router.push('/receipt/' + this.refs.receipt.value);
     }
-
 
 
     render() {

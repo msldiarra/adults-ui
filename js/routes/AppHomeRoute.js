@@ -8,6 +8,7 @@ import SearchByNINA from '../components/SearchByNINA';
 import SearchByRAVEC from '../components/SearchByRAVEC';
 import SearchByDefault from '../components/SearchByDefault';
 import Adult from '../components/Adult';
+import AdultByReceipt from '../components/AdultByReceipt';
 
 class RouteHome extends Relay.Route {
 
@@ -65,9 +66,12 @@ function getAnonymousDashboardParams(params, route){
 export default  <Route>
                     <Route path="/" component={AnonymousApp} queries={RouteHome.queries} prepareParams={getAnonymousParams} >
                         <IndexRoute component={IdentitySearch} queries={RouteHome.queries} prepareParams={getAnonymousDashboardParams} />
+
                         <Route path="search/nina" component={SearchByNINA} queries={RouteHome.queries} prepareParams={getAnonymousParams} />
                         <Route path="search/ravec" component={SearchByRAVEC} queries={RouteHome.queries} prepareParams={getAnonymousParams} />
                         <Route path="search/default" component={SearchByDefault} queries={RouteHome.queries} prepareParams={getAnonymousParams} />
+
                         <Route path="nina/:ninaNumber" component={Adult} queries={RouteHome.queries} prepareParams={getAnonymousParams} />
+                        <Route path="receipt/:receiptNumber" component={AdultByReceipt} queries={RouteHome.queries} prepareParams={getAnonymousParams} />
                     </Route>
                 </Route>

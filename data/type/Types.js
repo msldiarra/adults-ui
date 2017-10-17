@@ -89,7 +89,7 @@ export const viewerType = new GraphQLObjectType({
             id: globalIdField('Viewer'),
             adult: {
                 type: adultType,
-                description: "List of available locations",
+                description: "adult information of user",
                 args: {
                     ...connectionArgs,
                     search: {
@@ -100,6 +100,21 @@ export const viewerType = new GraphQLObjectType({
                 resolve: (_, args) => {
                     var term = args.search? args.search : '';
                     return DB.models.adult.findOne({where: {ninanumber: {$eq: term} }})
+                }
+            },
+            adultByReceipt: {
+                type: adultType,
+                description: "adult information of user",
+                args: {
+                    ...connectionArgs,
+                    search: {
+                        name: 'search',
+                        type: new GraphQLNonNull(GraphQLString)
+                    }
+                },
+                resolve: (_, args) => {
+                    var term = args.search? args.search : '';
+                    return DB.models.adult.findOne({where: {receiptnumber: {$eq: term} }})
                 }
             }
         }
