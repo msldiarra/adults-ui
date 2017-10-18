@@ -13,6 +13,10 @@ class IdentityNumber extends React.Component {
         } ;
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+
     render() {
         const text = this.state.message;
 

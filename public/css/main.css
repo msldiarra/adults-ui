@@ -466,8 +466,9 @@ li:hover {  }
 }
 
 .headline {font-size: 16px; line-height: 22px;}
+.error {padding-bottom: 5px}
 
-dd { line-height: 1.85714285714286; font-size: 18px;}
+dd { line-height: 1.85714285714286; font-size: 16px;}
 dd label {
     color: #9f9f9f;
     font-weight: 400;

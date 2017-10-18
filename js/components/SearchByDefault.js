@@ -39,6 +39,10 @@ class SearchByDefault extends React.Component {
 
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+
     handleUserInput(e) {
 
         e.preventDefault();

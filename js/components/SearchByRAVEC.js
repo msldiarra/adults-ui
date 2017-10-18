@@ -22,9 +22,12 @@ class SearchByRAVEC extends React.Component {
 
     handleUserInput(e) {
         e.preventDefault();
-        this.setState({receiptValid: e.target.value.match(/^[\w]{15}$/i)});
+        this.setState({receiptValid: e.target.value.match(/^[\w]{10}$/i)});
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
 
     render() {
 

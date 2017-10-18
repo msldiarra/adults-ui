@@ -25,6 +25,10 @@ class SearchByNINA extends React.Component {
         this.setState({pinValid: e.target.value.match(/^[\w]{15}$/i)});
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+
 
     render() {
 

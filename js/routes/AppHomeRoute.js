@@ -2,6 +2,8 @@ import Relay from 'react-relay';
 import React from 'react';
 import IndexRoute from 'react-router/lib/IndexRoute';
 import Route from 'react-router/lib/Route';
+import Redirect from 'react-router/lib/Redirect';
+import Page404 from '../components/Page404';
 import AnonymousApp from '../components/AnonymousApp';
 import IdentitySearch from '../components/IdentitySearch';
 import SearchByNINA from '../components/SearchByNINA';
@@ -92,5 +94,9 @@ export default  <Route>
                         <Route path="nina/:ninaNumber" component={Adult} queries={RouteHome.queries} prepareParams={getAnonymousParams} />
                         <Route path="receipt/:receiptNumber" component={AdultByReceipt} queries={RouteHome.queries} prepareParams={getAnonymousParams} />
                         <Route path="biography" component={AdultByBigoraphy} queries={RouteHome.queries} prepareParams={getBiographyParams} />
+
+                        <Route path="404" component={Page404}  />
+                        <Redirect path="*" to="404" />
+
                     </Route>
                 </Route>
