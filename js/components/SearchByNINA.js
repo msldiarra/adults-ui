@@ -8,22 +8,28 @@ class SearchByNINA extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            message : ""
+            message : "",
+            pinValid: false,
         } ;
     }
 
 
     onSearchByNINA(e) {
-
         e.preventDefault();
-        console.log(this.refs.nina.value);
+        console.log(e.target)
         this.context.router.push('/nina/' + this.refs.nina.value);
     }
+
+    handleUserInput(e) {
+        e.preventDefault();
+        this.setState({pinValid: e.target.value.match(/^[\w]{15}$/i)});
+    }
+
 
     render() {
 
         const text = this.state.message;
-
+        const validationMessage = this.state.pinValid? '' : 'Chaine de 15 charactères';
 
         return (
             <div className="">
@@ -43,15 +49,18 @@ class SearchByNINA extends React.Component {
                             </div>
                             <div className="form-group">
                                 <div className="col-md-12">
+                                    <div className={"col-md-12 opacity-54 text-center error"}>{validationMessage}</div>
                                     <div className="input-group col-md-12">
                                         <span className="input-group-addon"></span>
-                                        <input type="text" ref="nina" id="nina" className="form-control" placeholder="Numéro NINA" />
+                                        <input type="text" ref="nina" id="nina" className="form-control" placeholder="Numéro NINA" onKeyUp={this.handleUserInput.bind(this)}/>
                                     </div>
                                 </div>
                             </div>
                             <div className="form-group">
                                 <div className="col-md-12">
-                                    <inupt type="submit" style={{width:'100%'}}className="btn btn-default" onClick={this.onSearchByNINA.bind(this)}><b>Lancer la recherche</b></inupt>
+                                    <button type="submit" style={{width:'100%'}} className="btn btn-default" onClick={this.onSearchByNINA.bind(this)} disabled={!this.state.pinValid}>
+                                        <b>Lancer la recherche</b>
+                                    </button>
                                 </div>
                             </div>
                         </div>

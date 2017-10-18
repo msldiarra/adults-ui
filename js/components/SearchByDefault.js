@@ -9,7 +9,8 @@ class SearchByDefault extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            message : ""
+            message : "",
+            allFieldsGiven: false
         } ;
     }
 
@@ -38,8 +39,19 @@ class SearchByDefault extends React.Component {
 
     }
 
+    handleUserInput(e) {
+
+        e.preventDefault();
+
+        var valid = this.refs.lastName.value && this.refs.firstName.value &&
+        this.refs.fatherFirstName.value && this.refs.motherLastName.value && this.refs.motherFirstName.value;
+
+        this.setState({allFieldsGiven: valid});
+    }
+
     render() {
         const text = this.state.message;
+        const validationMessage = this.state.allFieldsGiven? '' : 'Tous les chamsp sont obligatoires';
 
 
         return (
@@ -60,9 +72,14 @@ class SearchByDefault extends React.Component {
                             </div>
                             <div className="form-group">
                                 <div className="col-md-12">
+                                    <div className={"col-md-12 opacity-54 text-center error"}>{validationMessage}</div>
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <div className="col-md-12">
                                     <div className="input-group col-md-12">
                                         <span className="input-group-addon"></span>
-                                        <input type="text" ref="lastName" id="lastName" className="form-control" placeholder="Nom de famille" />
+                                        <input type="text" ref="lastName" id="lastName" className="form-control" placeholder="Nom de famille" onKeyUp={this.handleUserInput.bind(this)} />
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +87,7 @@ class SearchByDefault extends React.Component {
                                 <div className="col-md-12">
                                     <div className="input-group col-md-12">
                                         <span className="input-group-addon"></span>
-                                        <input type="text" ref="firstName" id="firstName" className="form-control" placeholder="Prénom" />
+                                        <input type="text" ref="firstName" id="firstName" className="form-control" placeholder="Prénom" onKeyUp={this.handleUserInput.bind(this)} />
                                     </div>
                                 </div>
                             </div>
@@ -78,7 +95,7 @@ class SearchByDefault extends React.Component {
                                 <div className="col-md-12">
                                     <div className="input-group col-md-12">
                                         <span className="input-group-addon"></span>
-                                        <input type="text" ref="fatherFirstName" id="fatherFirstName" className="form-control" placeholder="Prénom du père" />
+                                        <input type="text" ref="fatherFirstName" id="fatherFirstName" className="form-control" placeholder="Prénom du père" onKeyUp={this.handleUserInput.bind(this)} />
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +103,7 @@ class SearchByDefault extends React.Component {
                                 <div className="col-md-12">
                                     <div className="input-group col-md-12">
                                         <span className="input-group-addon"></span>
-                                        <input type="text" ref="motherLastName" id="motherLastName" className="form-control" placeholder="Nom de jeune fille de la mère" />
+                                        <input type="text" ref="motherLastName" id="motherLastName" className="form-control" placeholder="Nom de jeune fille de la mère" onKeyUp={this.handleUserInput.bind(this)} />
                                     </div>
                                 </div>
                             </div>
@@ -94,13 +111,15 @@ class SearchByDefault extends React.Component {
                                 <div className="col-md-12">
                                     <div className="input-group col-md-12">
                                         <span className="input-group-addon"></span>
-                                        <input type="text" ref="motherFirstName" id="motherFirstName" className="form-control" placeholder="Prénom de la mère" />
+                                        <input type="text" ref="motherFirstName" id="motherFirstName" className="form-control" placeholder="Prénom de la mère" onKeyUp={this.handleUserInput.bind(this)} />
                                     </div>
                                 </div>
                             </div>
                             <div className="form-group">
                                 <div className="col-md-12">
-                                    <inupt type="submit" style={{width:'100%'}}className="btn btn-default" onClick={this.onSearchByDefault.bind(this)}><b>Lancer la recherche</b></inupt>
+                                    <button type="submit" style={{width:'100%'}} className="btn btn-default" onClick={this.onSearchByDefault.bind(this)} disabled={!this.state.allFieldsGiven}>
+                                        <b>Lancer la recherche</b>
+                                    </button>
                                 </div>
                             </div>
                         </div>

@@ -8,7 +8,8 @@ class SearchByRAVEC extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            message : ""
+            message : "",
+            receiptValid: false,
         } ;
     }
 
@@ -19,10 +20,16 @@ class SearchByRAVEC extends React.Component {
         this.context.router.push('/receipt/' + this.refs.receipt.value);
     }
 
+    handleUserInput(e) {
+        e.preventDefault();
+        this.setState({receiptValid: e.target.value.match(/^[\w]{15}$/i)});
+    }
+
 
     render() {
 
         const text = this.state.message;
+        const validationMessage = this.state.receiptValid? '' : 'Chaine de 10 charactères';
 
         return (
             <div className="">
@@ -42,15 +49,18 @@ class SearchByRAVEC extends React.Component {
                             </div>
                             <div className="form-group">
                                 <div className="col-md-12">
+                                    <div className={"col-md-12 opacity-54 text-center error"}>{validationMessage}</div>
                                     <div className="input-group col-md-12">
                                         <span className="input-group-addon"></span>
-                                        <input type="text" ref="receipt" id="receipt" className="form-control" placeholder="Numéro Récipissé RAVEC" />
+                                        <input type="text" ref="receipt" id="receipt" className="form-control" placeholder="Numéro Récipissé RAVEC" onKeyUp={this.handleUserInput.bind(this)} />
                                     </div>
                                 </div>
                             </div>
                             <div className="form-group">
                                 <div className="col-md-12">
-                                    <inupt type="submit" style={{width:'100%'}}className="btn btn-default" onClick={this.onSearchByRAVEC.bind(this)}><b>Lancer la recherche</b></inupt>
+                                    <button type="submit" style={{width:'100%'}}className="btn btn-default" onClick={this.onSearchByRAVEC.bind(this)} disabled={!this.state.receiptValid}>
+                                        <b>Lancer la recherche</b>
+                                    </button>
                                 </div>
                             </div>
                         </div>
