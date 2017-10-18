@@ -8,10 +8,10 @@ export default class AnonymousHeader extends React.Component {
 
         let header =
                 <nav className="navbar navbar-custom navbar-fixed-top" role="navigation">
-                    <div className="container-fluid">
-                        <div className="navbar-header">
-
-                            <a className="navbar-brand" href="#">CTDEC</a>
+                    <div className="container">
+                        <div className="navbar-header ">
+                            <a className="navbar-brand" href="#">CTDEC | <span>Nouveaux majeurs</span>
+                            </a>
                         </div>
                     </div>
                 </nav>

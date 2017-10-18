@@ -60,6 +60,16 @@ body {
     opacity: 0.87;
 }
 
+.footer {padding: 20px 20px; min-height: 300px;}
+
+.bkg-blue { background:  #03A9F4; }
+.bkg-img { background: url("../images/nina.jpg") no-repeat center; padding: 30px 30px; }
+.blue-bold { color: #03A9F4; font-weight: 600; }
+.blue { color: #03A9F4; }
+
+
+
+
 .hero-unit {
     margin:50px auto 0;
     width:300px;
@@ -265,10 +275,18 @@ a {
     background-color:transparent;
 }
 .navbar-custom .navbar-brand {
+    color:#03A9F4;
+    font-weight:600;
+    font-family: 'Open Sans';
+    font-size: 26px;
+}
+
+.navbar-custom .navbar-brand span {
+
     color:#000;
     font-weight:500;
-    font-family: 'Passion One', cursive;
-    font-size: 26px;
+    font-family: 'Open Sans';
+    font-size: 20px;
 }
 
 .cursive {font-family: 'Passion One', cursive;}
@@ -407,10 +425,7 @@ a {
 
 li:hover {  }
 
-img {
-    width: 100%; /* you can use % */
-    height: 100%;
-}
+
 .spacer {
     margin-bottom:40px;
 }
@@ -477,7 +492,7 @@ dd label {
     margin-right: 0 !important;
 }
 
-.min-height {min-height: 690px;}
+.min-height {min-height: 590px;}
 
 .RichEditor-root {
     background: #fff;

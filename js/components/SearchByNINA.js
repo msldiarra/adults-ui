@@ -38,7 +38,7 @@ class SearchByNINA extends React.Component {
                         <div className="col-md-6 center-block">
                             <div className="form-group">
                                 <div className="col-md-12 text-center">
-                                    <h3>Recherche par numéro NINA</h3>
+                                    <h3 className={"blue-bold"}>Recherche par numéro NINA</h3>
                                 </div>
                             </div>
                             <div className="form-group">

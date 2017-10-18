@@ -1,6 +1,7 @@
 import React from 'react';
 import Relay from 'react-relay';
 import Header from './AnonymousHeader';
+import Footer from './Footer';
 
 class AnonymousApp extends React.Component {
 
@@ -22,6 +23,7 @@ class AnonymousApp extends React.Component {
                         {this.props.children}
                     </div>
                 </div>
+                <Footer />
             </div>);
     }
 
