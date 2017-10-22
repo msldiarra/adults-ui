@@ -16,7 +16,6 @@ class SearchByRAVEC extends React.Component {
     onSearchByRAVEC(e) {
 
         e.preventDefault();
-        console.log(this.refs.receipt.value);
         this.context.router.push('/receipt/' + this.refs.receipt.value);
     }
 
@@ -32,7 +31,7 @@ class SearchByRAVEC extends React.Component {
     render() {
 
         const text = this.state.message;
-        const validationMessage = this.state.receiptValid? '' : 'Chaine de 10 charactères';
+        const validationMessage = this.state.receiptValid? '' : 'Entrer le formulaire';
 
         return (
             <div className="">

@@ -16,7 +16,7 @@ import fs from 'fs';
 import httpProxy from 'http-proxy';
 import config from './webpack.config';
 
-const APP_PORT = 3000;
+const APP_PORT = 80;
 const API_PORT = 3001;
 const GRAPHQL_PORT = 8181;
 
@@ -24,7 +24,8 @@ const proxy = httpProxy.createProxyServer({})
 console.log("process.env.NODE_ENV : ");
 console.log(process.env.NODE_ENV)
 
-var isProduction = process.env.NODE_ENV == 'production';
+//var isProduction = process.env.NODE_ENV == 'production';
+var isProduction = true;
 var applicationPort = isProduction ? APP_PORT : APP_PORT;
 var apiPort = isProduction ? API_PORT : API_PORT;
 var graphqlPort = isProduction ? GRAPHQL_PORT : GRAPHQL_PORT;

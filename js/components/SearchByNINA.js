@@ -16,7 +16,6 @@ class SearchByNINA extends React.Component {
 
     onSearchByNINA(e) {
         e.preventDefault();
-        console.log(e.target)
         this.context.router.push('/nina/' + this.refs.nina.value);
     }
 
@@ -33,7 +32,7 @@ class SearchByNINA extends React.Component {
     render() {
 
         const text = this.state.message;
-        const validationMessage = this.state.pinValid? '' : 'Chaine de 15 charactères';
+        const validationMessage = this.state.pinValid? '' : 'Entrer le numéro NINA';
 
         return (
             <div className="">
