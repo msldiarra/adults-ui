@@ -27,7 +27,7 @@ class AdultByBiography extends React.Component {
             <div className="page-content row">
                 <div className="col-md-6 center-block text-center opacity-54">
                     <img src={"/images/oops.jpg"} width={"90px"} height={"90px"}/>
-                    <h2>Désolé. Nous ne sommes pas en mesure de vous fournir vos information NINA avec les informations fournies.</h2>
+                    <h2>Désolé. Nous ne sommes pas en mesure de vous fournir vos données NINA avec les informations fournies.</h2>
                 </div>
             </div>
         </div>;
