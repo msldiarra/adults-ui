@@ -466,6 +466,7 @@ li:hover {  }
 }
 
 .headline {font-size: 16px; line-height: 22px;}
+.v-middle {vertical-align: middle}
 .error {padding-bottom: 5px}
 
 dd { line-height: 1.85714285714286; font-size: 16px;}
@@ -493,7 +494,7 @@ dd label {
     margin-right: 0 !important;
 }
 
-.min-height {min-height: 590px;}
+.min-height {min-height: 390px;}
 
 .RichEditor-root {
     background: #fff;

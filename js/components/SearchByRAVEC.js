@@ -31,7 +31,7 @@ class SearchByRAVEC extends React.Component {
     render() {
 
         const text = this.state.message;
-        const validationMessage = this.state.receiptValid? '' : 'Entrer le formulaire';
+        const validationMessage = this.state.receiptValid? '' : 'Entrer le numéro RAVEC';
 
         return (
             <div className="">

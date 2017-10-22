@@ -41,18 +41,20 @@ class IdentityNumber extends React.Component {
                                         <br/><br/>
                                         La recherche peut se faire par <span className={"blue-bold"}>identifiants</span> ou par <span className={"blue-bold"}>données biographiques</span>.
                                         <br/><br/>
-                                        Pour commencer, cliquez sur le cas vous correspondant <i className="fa fa-2x fa-arrow-circle-o-down blue" aria-hidden="true"></i>
+                                        Pour commencer, cliquez sur le cas vous correspondant {' '}<i className="fa fa-2x fa-arrow-circle-o-down blue v-middle" aria-hidden="true"></i>
                                     </p>
                                 </div>
                             </div>
-                            <div className="bkg-img">
+                            <div className="">
                             <div className="form-group">
                                 <div className="btn-group btn-group-justified col-md-12" role="group" >
                                     <div className="btn-group" role="group">
                                         <button onClick={() => this.context.router.push('/search/nina')} type="button" className={"btn btn-default " + (this.state.document ==  1? "active" : "")} value="1"><b>NINA</b></button>
                                     </div>
                                     <div className="btn-group" role="group">
-                                        <button onClick={() => this.context.router.push('/search/ravec')} type="button" className={"btn btn-default " + (this.state.document ==  2? "active" : "")} value="2"><b>Récipissé RAVEC</b></button>
+                                        <button onClick={() => this.context.router.push('/search/ravec')} type="button" className={"btn btn-default " + (this.state.document ==  2? "active" : "")} value="2"><b>
+                                            <span className="hidden-xs">Récipissé </span>RAVEC</b>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +64,8 @@ class IdentityNumber extends React.Component {
                                         <hr/>
                                         <br/>
                                         <button onClick={() => this.context.router.push('/search/default')} type="button" className={"btn btn-default " + (this.state.document ==  1? "active" : "")} value="3">
-                                            <b>Vous n'avez pas d'itentifiant</b>
+                                            <b className="hidden-xs">Vous n'avez pas d'identifiant</b>
+                                            <b className="visible-xs">Aucun identifiant</b>
                                         </button>
                                     </div>
                                 </div>

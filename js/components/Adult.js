@@ -37,13 +37,25 @@ class Adult extends React.Component {
 
             let adult = this.props.viewer.adult;
 
+            var message = "";
+
+                if (adult.placeOfBirth && adult.placeOfBirth.toLowerCase() == 'indetermine' && adult.placeOfResidence && adult.placeOfResidence.toLowerCase() == 'indetermine') {
+                    message = <h4>Veuillez passer dans une mairie ou un centre de collecte pour renseigner votre <span className='blue'>lieu de naissance et de résidence</span>.<br/><br/></h4>  ;
+                }
+                else if (adult.placeOfBirth && adult.placeOfBirth.toLowerCase() == 'indetermine') {
+                    message = <h4>Veuillez passer dans une mairie ou un centre de collecte pour renseigner votre <span className='blue'>lieu de naissance</span>.<br/><br/></h4> ;
+                }
+                else if (adult.placeOfResidence && adult.placeOfResidence.toLowerCase() == 'indetermine') {
+                    message = <h4>Veuillez passer dans une mairie ou un centre de collecte pour renseigner votre <span className='blue'>lieu de résidence</span>.<br/><br/></h4>;
+                }
+
             adultInfo = <div>
                 <div className="page-header col-md-6 center-block row">
 
                 </div>
                 <div className="page-content row">
                 <div className="col-md-6 center-block">
-
+                        {message}
                     <div className={"panel panel-default"}>
                         <div className={"panel-heading"}>
                             <h4>{adult.firstName + ' ' + adult.lastName}</h4>
