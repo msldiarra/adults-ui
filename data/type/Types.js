@@ -130,12 +130,12 @@ export const viewerType = new GraphQLObjectType({
                 },
                 resolve: (_, args) => {
                     return DB.models.adult.findOne({
-                        where: {firstname: {$eq: args.firstName}, $and:
+                        where: {firstname: {$iLike: args.firstName}, $and:
                             [
-                                {lastname: {$eq: args.lastName}},
-                                {fatherfirstname: {$eq: args.fatherFirstName}},
-                                {motherfirstname: {$eq: args.motherFirstName}},
-                                {motherlastname: {$eq: args.motherLastName}}
+                                {lastname: {$iLike: args.lastName}},
+                                {fatherfirstname: {$iLike: args.fatherFirstName}},
+                                {motherfirstname: {$iLike: args.motherFirstName}},
+                                {motherlastname: {$iLike: args.motherLastName}}
                             ]
                         }
                     })
