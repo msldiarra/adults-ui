@@ -66,7 +66,7 @@ class SearchByNINA extends React.Component {
                             </div>
                             <div className="form-group">
                                 <div className="col-md-12">
-                                    <button type="submit" style={{width:'100%'}} className="btn btn-default" onClick={this.onSearchByNINA.bind(this)} disabled={!this.state.pinValid && this.state.loading}>
+                                    <button type="submit" style={{width:'100%'}} className="btn btn-default" onClick={this.onSearchByNINA.bind(this)} disabled={!this.state.pinValid}>
                                         {this.state.loading && <div className="text-center"><i className="fa fa-2x fa-spinner" /></div> }
                                         {!this.state.loading && <b>Lancer la recherche</b>}
                                     </button>
