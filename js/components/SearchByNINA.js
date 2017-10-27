@@ -8,6 +8,7 @@ class SearchByNINA extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            loading: false,
             message : "",
             pinValid: false,
         } ;
@@ -16,6 +17,7 @@ class SearchByNINA extends React.Component {
 
     onSearchByNINA(e) {
         e.preventDefault();
+        this.setState({loading: true})
         this.context.router.push('/nina/' + this.refs.nina.value);
     }
 
@@ -64,8 +66,9 @@ class SearchByNINA extends React.Component {
                             </div>
                             <div className="form-group">
                                 <div className="col-md-12">
-                                    <button type="submit" style={{width:'100%'}} className="btn btn-default" onClick={this.onSearchByNINA.bind(this)} disabled={!this.state.pinValid}>
-                                        <b>Lancer la recherche</b>
+                                    <button type="submit" style={{width:'100%'}} className="btn btn-default" onClick={this.onSearchByNINA.bind(this)} disabled={!this.state.pinValid && this.state.loading}>
+                                        {this.state.loading && <div className="text-center"><i className="fa fa-2x fa-spinner" /></div> }
+                                        {!this.state.loading && <b>Lancer la recherche</b>}
                                     </button>
                                 </div>
                             </div>

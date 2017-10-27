@@ -8,6 +8,7 @@ class SearchByRAVEC extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            loading: false,
             message : "",
             receiptValid: false,
         } ;
@@ -16,6 +17,7 @@ class SearchByRAVEC extends React.Component {
     onSearchByRAVEC(e) {
 
         e.preventDefault();
+        this.setState({loading: true})
         this.context.router.push('/receipt/' + this.refs.receipt.value);
     }
 
@@ -60,8 +62,9 @@ class SearchByRAVEC extends React.Component {
                             </div>
                             <div className="form-group">
                                 <div className="col-md-12">
-                                    <button type="submit" style={{width:'100%'}}className="btn btn-default" onClick={this.onSearchByRAVEC.bind(this)} disabled={!this.state.receiptValid}>
-                                        <b>Lancer la recherche</b>
+                                    <button type="submit" style={{width:'100%'}}className="btn btn-default" onClick={this.onSearchByRAVEC.bind(this)} disabled={!this.state.receiptValid && this.state.loading}>
+                                        {this.state.loading && <div className="text-center"><i className="fa fa-2x fa-spinner" /></div> }
+                                        {!this.state.loading && <b>Lancer la recherche</b>}
                                     </button>
                                 </div>
                             </div>

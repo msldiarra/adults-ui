@@ -10,6 +10,7 @@ class SearchByDefault extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            loading: false,
             message : "",
             allFieldsGiven: false,
         } ;
@@ -18,6 +19,8 @@ class SearchByDefault extends React.Component {
     onSearchByDefault(e) {
 
         e.preventDefault();
+
+        this.setState({loading: true})
 
         let ln = CharsService.removeDiacritics(this.refs.lastName.value);
         let fn = CharsService.removeDiacritics(this.refs.firstName.value);
@@ -124,8 +127,9 @@ class SearchByDefault extends React.Component {
                             </div>
                             <div className="form-group">
                                 <div className="col-md-12">
-                                    <button type="submit" style={{width:'100%'}} className="btn btn-default" onClick={this.onSearchByDefault.bind(this)} disabled={!this.state.allFieldsGiven}>
-                                        <b>Lancer la recherche</b>
+                                    <button type="submit" style={{width:'100%'}} className="btn btn-default" onClick={this.onSearchByDefault.bind(this)} disabled={!this.state.allFieldsGiven && this.state.loading}>
+                                        {this.state.loading && <div className="text-center"><i className="fa fa-2x fa-spinner" /></div> }
+                                        {!this.state.loading && <b>Lancer la recherche</b>}
                                     </button>
                                 </div>
                             </div>
