@@ -1,6 +1,7 @@
 import React from 'react'
 import Relay from 'react-relay'
 import AppMessage from './common/AppMessage';
+import CharsService from './service/CharsService';
 
 
 
@@ -10,7 +11,7 @@ class SearchByDefault extends React.Component {
         super(props);
         this.state = {
             message : "",
-            allFieldsGiven: false
+            allFieldsGiven: false,
         } ;
     }
 
@@ -18,12 +19,11 @@ class SearchByDefault extends React.Component {
 
         e.preventDefault();
 
-        let ln = this.refs.lastName.value;
-        let fn = this.refs.firstName.value;
-        let ffn = this.refs.fatherFirstName.value;
-        let mln = this.refs.motherLastName.value;
-        let mfn = this.refs.motherFirstName.value;
-
+        let ln = CharsService.removeDiacritics(this.refs.lastName.value);
+        let fn = CharsService.removeDiacritics(this.refs.firstName.value);
+        let ffn = CharsService.removeDiacritics(this.refs.fatherFirstName.value);
+        let mln = CharsService.removeDiacritics(this.refs.motherLastName.value);
+        let mfn = CharsService.removeDiacritics(this.refs.motherFirstName.value);
 
         this.context.router.push({
             pathname: '/biography',
@@ -33,7 +33,6 @@ class SearchByDefault extends React.Component {
                 fatherFirstName: ffn,
                 motherLastName: mln,
                 motherFirstName: mfn
-
             } )
         })
 
@@ -49,7 +48,6 @@ class SearchByDefault extends React.Component {
 
         var valid = this.refs.lastName.value && this.refs.firstName.value &&
         this.refs.fatherFirstName.value && this.refs.motherLastName.value && this.refs.motherFirstName.value;
-
         this.setState({allFieldsGiven: valid});
     }
 
@@ -81,41 +79,46 @@ class SearchByDefault extends React.Component {
                             </div>
                             <div className="form-group">
                                 <div className="col-md-12">
+                                    <label form="lastName" >Nom de famille</label>
                                     <div className="input-group col-md-12">
                                         <span className="input-group-addon"></span>
-                                        <input type="text" ref="lastName" id="lastName" className="form-control" placeholder="Nom de famille" onKeyUp={this.handleUserInput.bind(this)} />
+                                        <input type="text" ref="lastName" id="lastName" className="form-control" placeholder="Entrez le nom de famille" onKeyUp={this.handleUserInput.bind(this)} />
                                     </div>
                                 </div>
                             </div>
                             <div className="form-group">
                                 <div className="col-md-12">
+                                    <label form="firstName" >Prénoms</label>
                                     <div className="input-group col-md-12">
                                         <span className="input-group-addon"></span>
-                                        <input type="text" ref="firstName" id="firstName" className="form-control" placeholder="Prénom" onKeyUp={this.handleUserInput.bind(this)} />
+                                        <input type="text" ref="firstName" id="firstName" className="form-control" placeholder="Entrez les prénoms" onKeyUp={this.handleUserInput.bind(this)} />
                                     </div>
                                 </div>
                             </div>
                             <div className="form-group">
                                 <div className="col-md-12">
+                                    <label form="lastName" >Prénoms du père</label>
                                     <div className="input-group col-md-12">
                                         <span className="input-group-addon"></span>
-                                        <input type="text" ref="fatherFirstName" id="fatherFirstName" className="form-control" placeholder="Prénom du père" onKeyUp={this.handleUserInput.bind(this)} />
+                                        <input type="text" ref="fatherFirstName" id="fatherFirstName" className="form-control" placeholder="Entrez les prénoms du père" onKeyUp={this.handleUserInput.bind(this)} />
                                     </div>
                                 </div>
                             </div>
                             <div className="form-group">
                                 <div className="col-md-12">
+                                    <label form="lastName" >Nom de jeune fille de la mère</label>
                                     <div className="input-group col-md-12">
                                         <span className="input-group-addon"></span>
-                                        <input type="text" ref="motherLastName" id="motherLastName" className="form-control" placeholder="Nom de jeune fille de la mère" onKeyUp={this.handleUserInput.bind(this)} />
+                                        <input type="text" ref="motherLastName" id="motherLastName" className="form-control" placeholder="Entrez le nom de jeune fille de la mère" onKeyUp={this.handleUserInput.bind(this)} />
                                     </div>
                                 </div>
                             </div>
                             <div className="form-group">
                                 <div className="col-md-12">
+                                    <label form="lastName" >Prénoms de la mère</label>
                                     <div className="input-group col-md-12">
                                         <span className="input-group-addon"></span>
-                                        <input type="text" ref="motherFirstName" id="motherFirstName" className="form-control" placeholder="Prénom de la mère" onKeyUp={this.handleUserInput.bind(this)} />
+                                        <input type="text" ref="motherFirstName" id="motherFirstName" className="form-control" placeholder="Entrez les prénoms de la mère" onKeyUp={this.handleUserInput.bind(this)} />
                                     </div>
                                 </div>
                             </div>

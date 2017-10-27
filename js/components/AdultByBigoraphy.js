@@ -91,7 +91,7 @@ AdultByBiography.contextTypes = {
 export default Relay.createContainer(AdultByBiography, {
 
 
-    initialVariables: {firstName: "", lastName: "", fatherFirstName: "", motherFirstName: "", motherLastName: "" },
+    initialVariables: {firstName: "", lastName: "", fatherFirstName: "", motherFirstName: "", motherLastName: ""},
 
     fragments: {
         viewer: () => Relay.QL`

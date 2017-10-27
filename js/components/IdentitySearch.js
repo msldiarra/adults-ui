@@ -41,7 +41,10 @@ class IdentityNumber extends React.Component {
                                         <br/><br/>
                                         La recherche peut se faire par <span className={"blue-bold"}>identifiants</span> ou par <span className={"blue-bold"}>données biographiques</span>.
                                         <br/><br/>
-                                        Pour commencer, cliquez sur le cas vous correspondant {' '}<i className="fa fa-2x fa-arrow-circle-o-down blue v-middle" aria-hidden="true"></i>
+                                        Pour commencer, cliquez sur le bouton représentant le cas vous correspondant.
+                                    </p>
+                                    <p className={"text-center"}>
+                                        <i className="fa fa-2x fa-arrow-circle-o-down blue v-middle" aria-hidden="true"></i>
                                     </p>
                                 </div>
                             </div>

@@ -135,7 +135,7 @@ export const viewerType = new GraphQLObjectType({
                                 {lastname: {$iLike: args.lastName}},
                                 {fatherfirstname: {$iLike: args.fatherFirstName}},
                                 {motherfirstname: {$iLike: args.motherFirstName}},
-                                {motherlastname: {$iLike: args.motherLastName}}
+                                {motherlastname: {$iLike: args.motherLastName}},
                             ]
                         }
                     })

@@ -6,9 +6,9 @@ export default class Footer extends React.Component {
 
 
         let footer =
-                <footer className={"container footer text-center "}>
+                <footer className={"container footer text-center"}>
                     <hr/>
-                    <p className="headline">Le CTDEC est le <span className={"blue-bold"}>Centre de Traitement des Données de l'Etat Civil</span></p>
+                    <p className="headline"><span className={"blue-bold"}>Centre de Traitement des Données de l'Etat Civil</span></p>
                     <br/>
                     <img src={"/images/1.bmp"} width={"90px"} height={"90px"} />
                     <br/><br/>
